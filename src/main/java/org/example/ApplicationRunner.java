@@ -17,8 +17,8 @@ public class ApplicationRunner {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml")) {
             ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
-            CompanyRepository companyRepository = context.getBean("companyRepository", CompanyRepository.class);
-            System.out.println(companyRepository);
+//            CompanyRepository companyRepository = context.getBean("companyRepository", CompanyRepository.class);
+//            System.out.println(companyRepository.findById(1));
         }
     }
 }
