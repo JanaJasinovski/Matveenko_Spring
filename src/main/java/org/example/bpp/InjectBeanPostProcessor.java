@@ -6,10 +6,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.ReflectionUtils;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
+
     private ApplicationContext applicationContext;
 
     @Override
@@ -21,12 +21,13 @@ public class InjectBeanPostProcessor implements BeanPostProcessor, ApplicationCo
                     ReflectionUtils.makeAccessible(field);
                     ReflectionUtils.setField(field, bean, beanToInject);
                 });
+
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
+        return bean;
     }
 
     @Override

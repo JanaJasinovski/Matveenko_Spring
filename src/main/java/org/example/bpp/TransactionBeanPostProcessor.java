@@ -9,10 +9,11 @@ import java.util.Map;
 
 public class TransactionBeanPostProcessor implements BeanPostProcessor {
 
-    private final Map<String , Class<?>> transactionBeans = new HashMap<>();
+    private final Map<String, Class<?>> transactionBeans = new HashMap<>();
+
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(bean.getClass().isAnnotationPresent(Transaction.class)) {
+        if (bean.getClass().isAnnotationPresent(Transaction.class)) {
             transactionBeans.put(beanName, bean.getClass());
         }
         return bean;
@@ -35,3 +36,4 @@ public class TransactionBeanPostProcessor implements BeanPostProcessor {
         return bean;
     }
 }
+

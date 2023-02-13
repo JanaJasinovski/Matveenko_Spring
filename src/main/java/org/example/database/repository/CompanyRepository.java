@@ -5,23 +5,30 @@ import org.example.bpp.InjectBean;
 import org.example.bpp.Transaction;
 import org.example.database.entity.Company;
 import org.example.database.pool.ConnectionPool;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
 
 @Transaction
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    @InjectBean
-    private ConnectionPool connectionPool;
+    //    @Resource(name = "pool1")
+//    @Qualifier("pool1")
+    private ConnectionPool pool1;
+    @Autowired
+    private List<ConnectionPool> pools;
+    @Value("${db.pool.size}")
+    private Integer poolSize;
 
     @PostConstruct
     private void init() {
         System.out.println("init company repository");
-    }
-
-    public CompanyRepository() {
     }
 
     @Override
@@ -33,5 +40,10 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     @Override
     public void delete(Company entity) {
         System.out.println("delete method...");
+    }
+
+    @Autowired
+    public void setPool1(ConnectionPool pool1) {
+        this.pool1 = pool1;
     }
 }
