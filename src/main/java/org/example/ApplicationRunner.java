@@ -18,7 +18,7 @@ public class ApplicationRunner {
 
         try (var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class)) {
             context.getEnvironment().setActiveProfiles("web", "prod");
-            context.refresh();
+//            context.refresh();
             var connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
 
