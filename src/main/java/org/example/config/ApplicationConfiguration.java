@@ -18,9 +18,9 @@ import org.springframework.stereotype.Component;
 import org.web.config.WebConfiguration;
 
 //@ImportResource("classpath:application.xml")
-@Import( WebConfiguration.class )
+@Import(WebConfiguration.class)
 @Configuration(proxyBeanMethods = true)
-@PropertySource( "classpath:application.properties" )
+//@PropertySource( "classpath:application.yml" )
 @ComponentScan( basePackages = "org.example",
         useDefaultFilters = false,
         includeFilters = {
