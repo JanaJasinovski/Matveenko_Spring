@@ -18,7 +18,7 @@
 <!--        <context:include-filter type="regex" expression="org.\..+Repository"/>-->
     </context:component-scan>
 
-    <context:property-placeholder location="classpath:application.properties"/>
+<!--    <context:property-placeholder location="classpath:application.properties"/>-->
 
     <!--    <constructor-arg name="args" type="java.util.List">-->
 <!--        <list>-->
