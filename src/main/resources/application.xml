@@ -7,10 +7,20 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:property-placeholder location="classpath:application.properties"/>
-    <context:component-scan base-package="org.example"/>
+    <context:component-scan base-package="org.example"
+                            annotation-config="true"
+                            resource-pattern="**/*.class"
+                            scoped-proxy="no"
+                            scope-resolver=""
+                            use-default-filters="true">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+<!--        <context:include-filter type="assignable" expression="org.example.database.repository.CrudRepository"/>-->
+<!--        <context:include-filter type="regex" expression="org.\..+Repository"/>-->
+    </context:component-scan>
 
-<!--    <constructor-arg name="args" type="java.util.List">-->
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <!--    <constructor-arg name="args" type="java.util.List">-->
 <!--        <list>-->
 <!--            <value>&#45;&#45;arg1=value1</value>-->
 <!--            <value>&#45;&#45;arg2=value2</value>-->
