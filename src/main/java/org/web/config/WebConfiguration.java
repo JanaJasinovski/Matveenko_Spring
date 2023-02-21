@@ -6,5 +6,4 @@ import org.springframework.context.annotation.Profile;
 @Profile("web")
 @Configuration
 public class WebConfiguration {
-
 }

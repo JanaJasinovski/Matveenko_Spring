@@ -17,6 +17,7 @@ public class LogBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Pr
             var beanDefinition = beanFactory.getBeanDefinition(beanDefinitionName);
             var genericArgumentValues = beanDefinition.getConstructorArgumentValues().getGenericArgumentValues();
             for (ConstructorArgumentValues.ValueHolder genericArgumentValue : genericArgumentValues) {
+                // TODO: 20.11.2021 set get
             }
         }
     }

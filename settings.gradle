@@ -1,2 +1,3 @@
 rootProject.name = 'Matveenko_Spring'
+include 'common-logging-starter'
 

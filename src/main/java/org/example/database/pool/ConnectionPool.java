@@ -9,12 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Slf4j
-@Component( "pool1" )
+@Component("pool1")
 @RequiredArgsConstructor
-public class ConnectionPool  {
+public class ConnectionPool {
+
     @Value("${db.username}")
     private final String username;
-
     @Value("${db.pool.size}")
     private final Integer poolSize;
 
@@ -27,5 +27,4 @@ public class ConnectionPool  {
     private void destroy() {
         log.info("Clean connection pool");
     }
-
 }

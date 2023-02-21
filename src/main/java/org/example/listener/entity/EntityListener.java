@@ -1,4 +1,4 @@
-package org.example.listner.entity;
+package org.example.listener.entity;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;

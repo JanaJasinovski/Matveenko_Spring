@@ -1,4 +1,4 @@
-package org.example.listner.entity;
+package org.example.listener.entity;
 
 import lombok.Getter;
 

@@ -1,24 +1,20 @@
 package org.example.integration.service;
 
-import lombok.RequiredArgsConstructor;
 import org.example.config.DatabaseProperties;
+import lombok.RequiredArgsConstructor;
 import org.example.dto.CompanyReadDto;
 import org.example.integration.annotation.IT;
 import org.example.service.CompanyService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestConstructor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @IT
 @RequiredArgsConstructor
-//@ExtendWith(MockitoExtension.class)
+//@ExtendWith(SpringExtension.class)
 //@ContextConfiguration(classes = ApplicationRunner.class, initializers = ConfigDataApplicationContextInitializer.class)
-class CompanyServiceIT {
+public class CompanyServiceIT {
 
     private static final Integer COMPANY_ID = 1;
 
@@ -31,8 +27,7 @@ class CompanyServiceIT {
 
         assertTrue(actualResult.isPresent());
 
-        var expectedResult = new CompanyReadDto(COMPANY_ID);
+        var expectedResult = new CompanyReadDto(COMPANY_ID, null);
         actualResult.ifPresent(actual -> assertEquals(expectedResult, actual));
     }
-
 }
